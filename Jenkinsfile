@@ -1,7 +1,7 @@
 pipeline {
     environment {
-        registry = "siva997/siva44"
-        registryCredential = 'dockerhub'
+        registry = "siva997/siva244"
+        registryCredential = 'Docker_Id'
     }
     agent any
     stages {
@@ -9,7 +9,7 @@ pipeline {
             steps {
                      // Get code from a GitHub repository
                     git url:'https://github.com/Sivaram122/sample.git', branch: 'main',
-                    credentialsId: 'github'
+                    credentialsId: 'Git'
             }
         }
         stage('Building image') {
@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deploy our image') {
             steps {
-                withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+                withDockerRegistry([ credentialsId: "Docker_Id", url: "" ]) {
               sh  'docker push siva997/jenkintest:latest'
               sh  'docker push siva997/jenkintest:$BUILD_NUMBER'
                 }
