@@ -8,7 +8,7 @@ pipeline {
         stage('Checkout') {
             steps {
                      // Get code from a GitHub repository
-                    git url:'https://github.com/Sivaram122/sample.git', branch: 'main',
+                    git url:'https://github.com/Sivaram122/sample.git', branch: 'master',
                     credentialsId: 'Git'
             }
         }
